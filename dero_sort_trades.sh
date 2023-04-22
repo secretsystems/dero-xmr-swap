@@ -1,7 +1,7 @@
 #!/bin/bash
 
 if [ ! -s "$monero_pong_db" ] ; then
-	echo "Not a trade..."
+	echo "No trade data..."
 fi
 
 echo "Scanning: $txid"
