@@ -4,12 +4,12 @@ if [ ! -s "$dero_pong_db" ] ; then
 	echo "No sales data..."
 fi
 
+echo "Scanning: $txid"
 if [[ "$already_processed" =~ "$time" ]] ; then 
 	echo "Already processed, skipping"
 			continue
 fi
 
-echo "Scanning: $txid"
 if [[ "$amount" == "2" ]] ; then 
 		
 		if [[ "$dst_port" == "1337" ]] ; then
