@@ -34,7 +34,23 @@ chmod +x *.sh
 ```
 
 # Run
-To run:
+1. Turn on derod
+```
+./derod-linux-amd64 --node-tag "secret-discord-server" --integrator-address dero123 --data-dir ~/Documents --rpc-bind=0.0.0.0:10102 
+```
+2. Turn on monerod
+```
+./monerod --rpc-bind-ip=0.0.0.0 --confirm-external
+```
+3. Turn on dero-wallet-cli --rpc-server
+```
+./dero-wallet-cli-amd64 --wallet-file=wallet.db --rpc-server --rpc-bind=0.0.0.0:10103 --password=password --rpc-login user:pass --unlocked
+```
+4. Turn on monero-wallet-cli-rpc-server
+```
+./monero-wallet-rpc --rpc-bind-port 28088 --rpc-bind-ip 0.0.0.0 --wallet-file monero-wallet --password secret-server --confirm-external-bind --trusted-daemon --rpc-login user:pass
+```
+5. Turn on xmr-dero swap
 ```
 ./init.sh
 ```
