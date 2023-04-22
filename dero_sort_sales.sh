@@ -1,7 +1,7 @@
 #!/bin/bash
-echo "Scanning: $txid"
+
 if [ ! -s "$dero_pong_db" ] ; then
-	echo "Not a sale..."
+	echo "No sales data..."
 fi
 
 if [[ "$already_processed" =~ "$time" ]] ; then 
@@ -9,6 +9,7 @@ if [[ "$already_processed" =~ "$time" ]] ; then
 			continue
 fi
 
+echo "Scanning: $txid"
 if [[ "$amount" == "2" ]] ; then 
 		
 		if [[ "$dst_port" == "1337" ]] ; then
