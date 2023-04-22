@@ -1,5 +1,5 @@
 #!/bin/bash
-echo "Scanning: $txid"
+
 if [ ! -s "$monero_pong_db" ] ; then
 	echo "Not a trade..."
 fi
@@ -9,7 +9,7 @@ if [[ "$already_processed" =~ "$time" ]] ; then
 			continue
 fi
 
-
+echo "Scanning: $txid"
 if [[ "$dst_port" == "7331" ]] ; then
 
 		if [[ "$comment" ]] ; then		
