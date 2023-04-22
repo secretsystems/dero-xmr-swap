@@ -4,12 +4,12 @@ if [ ! -s "$monero_pong_db" ] ; then
 	echo "Not a trade..."
 fi
 
+echo "Scanning: $txid"
 if [[ "$already_processed" =~ "$time" ]] ; then 
 	echo "Already processed, skipping"
 			continue
 fi
 
-echo "Scanning: $txid"
 if [[ "$dst_port" == "7331" ]] ; then
 
 		if [[ "$comment" ]] ; then		
