@@ -6,12 +6,12 @@ Ping DERO addr -> get XMR addr in DERO wallet: Deposit XMR -> XMR addr -> get DE
 Ping DERO addr -> get trade instructions: Deposit DERO -> DERO port 7331 with XMR in comment -> get XMR 
 
 # Working Demo
-If you would like to purchase the trade instructions to trade DERO for XMR, ping here:
+If you would like to purchase the trade instructions to trade XMR for DERO, ping here:
 ```
 deroi1qyw4fl3dupcg5qlrcsvcedze507q9u67lxfpu8kgnzp04aq73yheqqdyvfp4x7q6tpx4ygrxdaezq3z92f8jqarjv9jx2grpv3j8yetnwd3yg4geq5ukynj4qp39v4gzdn9nv2
 ```
 
-If you would like to purchase XMR for DERO trade instructions, ping here:
+If you would like to Trade DERO for XMR trade instructions, ping here:
 ```
 deroi1qyw4fl3dupcg5qlrcsvcedze507q9u67lxfpu8kgnzp04aq73yheqqdyvfp4x7pqg3jhymeqvehhygzcf4fzq4rjv9jx2gzfdeehgun4vd6xjmmwwvhxy3z4ryw2xcjw25qxy4j4qgju59zp
 ```
