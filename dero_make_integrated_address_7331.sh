@@ -1,5 +1,3 @@
-dero_ip="127.0.0.1"
-dero_port="10103"
 curl -s -X POST \
   http://$dero_ip:$dero_port/json_rpc \
   -H 'content-type: application/json' \
