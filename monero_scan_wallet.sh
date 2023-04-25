@@ -14,3 +14,4 @@ echo "XMR Wallet Scan: done"
 echo "XMR Wallet Scan: sleep"
 sleep $s
 done
+return
