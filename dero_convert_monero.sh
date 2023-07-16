@@ -1,6 +1,6 @@
 
 # Collect quote for USDT-DERO pair
-Get_USDTDERO=$(curl -s -X GET https://tradeogre.com/api/v1/ticker/usdt-dero | jq -r '. | (.bid)')
+Get_USDTDERO=$(curl -s -X GET https://tradeogre.com/api/v1/ticker/dero-usdt | jq -r '. | (.bid)')
 USDTDERO_MESSAGE=$(echo "USDT-DERO: $Get_USDTDERO")
 
 # Obtain USDT value of the transfer amount
@@ -9,7 +9,7 @@ amount_usdt=$(calc "$Get_USDTDERO"*"$amount"*"0.00001")
 AMOUNT_MESSAGE=$(echo "Your DERO is valued at: $amount_usdt USDT")
 
 # Get bid for USDT-XMR pair
-Get_USDTXMR=$(curl -s -X GET https://tradeogre.com/api/v1/ticker/usdt-xmr | jq -r '. | (.bid)')
+Get_USDTXMR=$(curl -s -X GET https://tradeogre.com/api/v1/ticker/xmr-usdt | jq -r '. | (.bid)')
 USDTXMR_MESSAGE=$(echo "USDT-XMR: $Get_USDTXMR")
 
 # Obtain amount as referenced as amount of xmr
