@@ -21,7 +21,7 @@ if [[ "$dst_port" == "7331" ]] ; then
 					valid=$(echo "$response" | jq -r '.result.valid')
 
 					if [[ "$valid" == "true" ]]; then
-						echo "XMR TXID: $txid scanning"
+						echo "DERO TXID: $txid scanning"
 						echo "Monero address is valid"
 						addr=$comment
 						export addr
