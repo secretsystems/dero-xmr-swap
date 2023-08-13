@@ -3,9 +3,6 @@
 s="18"
 echo "Sleep is set for $s seconds"
 
-# data feeds
-export_transfers=$(source ./dero_export_sales.sh)
-
 # Initialize Sales List
 echo "DERO Wallet Scan: start"
 dero_pong_db="dero_pong.db"
