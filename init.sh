@@ -17,7 +17,7 @@ cleanup() {
 # Set up the trap to call the cleanup function when SIGINT (Ctrl+C) is received
 trap cleanup SIGINT
 
-export monero_pong_db dero_ip dero_port monero_ip monero_port monero_pong_db xmr_dero_ticker
+export date monero_pong_db dero_ip dero_port monero_ip monero_port monero_pong_db xmr_dero_ticker
 
 while true; do
 xmr_dero_addr=$(source ./dero_make_integrated_address_1337.sh)
