@@ -23,7 +23,7 @@ response=$(curl -u user:pass -s -X POST -H 'Content-type: application/json' -d "
 txid=$(echo "$response" | jq -r '.result.txid')
 if [ -n "$txid" ]; then
 echo "PAYLOAD STATUS: SENT WITH DERO TXID $txid"
-printf "sale %s %s %s %s\n" "$time" "$addr" "$amnt" "$txid" | tee -a "$dero_pong_db"
+printf "sale %s %s %s %s\n" "$time" "$addr" "$amnt" "$txid" >> "$dero_pong_db"
 else
     echo "PAYLOAD STATUS: FAILED"
 fi
