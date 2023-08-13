@@ -5,7 +5,7 @@ echo "Sleep is set for $s seconds"
 
 while true; do
 # Get a list of transfers
-echo "$date XMR Wallet Scan: start"
+echo "XMR Wallet Scan: start"
 monero_pong_db="monero_pong.db"
 
 # Check  if in db
