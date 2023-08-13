@@ -11,6 +11,7 @@ xmr_dero_ticker=$(source ./ticker.app)
 cleanup() {
     echo "Cleaning up before exiting..."
     # Additional cleanup actions you may need before exiting
+    killall timeout
     exit 0
 }
 
