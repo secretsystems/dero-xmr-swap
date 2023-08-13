@@ -11,12 +11,13 @@ echo "$xmr_dero_addr" > xmr4dero.addr
 echo "xmr for dero address saved to xmr4dero.addr"
 dero_xmr_addr=$(source ./dero_make_integrated_address_7331.sh)
 echo "$dero_xmr_addr" > dero4xmr.addr
+echo "dero for xmr address saved to dero4xmr.addr"
 
 cleanup() {
     echo "Cleaning up before exiting..."
     # Additional cleanup actions you may need before exiting
-    killall timeout
-    exit 0
+        killall timeout 2>/dev/null
+	exit 0
 }
 
 # Set up the trap to call the cleanup function when SIGINT (Ctrl+C) is received
@@ -25,7 +26,6 @@ trap cleanup SIGINT
 export date monero_pong_db dero_ip dero_port monero_ip monero_port monero_pong_db xmr_dero_ticker
 
 while true; do
-echo "dero for xmr address saved to dero4xmr.addr"
 echo "XMR-DERO is trading at: $xmr_dero_ticker"
 source ./dero_scan_wallet.sh 
 done
