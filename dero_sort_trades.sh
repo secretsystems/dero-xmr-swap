@@ -6,7 +6,7 @@ if [[ "$dst_port" != "7331" ]] ; then
 fi
 
 if [[ "$already_processed" =~ "$time" ]] ; then 
-	echo "$txid found in xmr for dero trade db, skipping"
+	echo "DERO TXID: $txid found in XMR for DERO db, skipping"
 			continue
 fi
 
@@ -21,14 +21,14 @@ if [[ "$dst_port" == "7331" ]] ; then
 					valid=$(echo "$response" | jq -r '.result.valid')
 
 					if [[ "$valid" == "true" ]]; then
-						echo "Scanning: $txid"
+						echo "XMR TXID: $txid scanning"
 						echo "Monero address is valid"
 						addr=$comment
 						export addr
 						source ./dero_convert_monero.sh
 						source ./monero_tx.sh
 					else
-						echo "$txid XMR addr invalid, found: $comment"
+						echo "DERO TXID: $txid found XMR addr invalid: $comment"
 					fi
 			return
 		fi

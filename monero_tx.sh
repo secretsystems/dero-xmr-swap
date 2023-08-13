@@ -26,7 +26,7 @@ if [[ "$txid" != "null" ]]; then
 	printf "sale %s %s %s %s\n" "$time" "$addr" "$amnt" "$txid" | tee >> $monero_pong_db
 	else
 	echo "Transfer failed"
-	echo "$response"
+	echo "XMR TXID: $response"
 fi
 
 

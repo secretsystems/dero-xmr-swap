@@ -16,7 +16,6 @@ fi
 touch $monero_pong_db
 export monero_pong_db
 source ./monero_process_sales.sh
-echo "XMR Wallet Scan: done"
 echo "XMR Wallet Scan: sleep"
 sleep $s
 done

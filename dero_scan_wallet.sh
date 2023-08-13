@@ -17,7 +17,6 @@ touch $dero_pong_db
 export dero_pong_db
 source ./dero_process_sales.sh
 source ./dero_process_trades.sh
-echo "DERO Wallet Scan: done"
 echo "DERO Wallet Scan: sleep"
 sleep $s
 
