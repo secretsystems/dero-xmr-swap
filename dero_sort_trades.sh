@@ -6,7 +6,7 @@ if [[ "$dst_port" != "7331" ]] ; then
 fi
 
 if [[ "$already_processed" =~ "$time" ]] ; then 
-	echo "Already processed, skipping"
+	echo "tx found in xmr for dero trade db, skipping"
 			continue
 fi
 
