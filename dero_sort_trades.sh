@@ -1,7 +1,6 @@
 #!/bin/bash
 
 if [[ "$dst_port" != "7331" ]] ; then
-	echo "Not Port 7331"
 	continue
 
 fi
