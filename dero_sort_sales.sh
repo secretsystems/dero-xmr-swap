@@ -2,7 +2,7 @@
 
 
 if [[ "$already_processed" =~ "$time" ]] ; then 
-	echo "tx found in dero for xmr db, skipping"
+	echo "$txid was found in dero for xmr db, skipping"
 			continue
 fi
 

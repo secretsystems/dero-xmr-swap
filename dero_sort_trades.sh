@@ -6,7 +6,7 @@ if [[ "$dst_port" != "7331" ]] ; then
 fi
 
 if [[ "$already_processed" =~ "$time" ]] ; then 
-	echo "tx found in xmr for dero trade db, skipping"
+	echo "$txid found in xmr for dero trade db, skipping"
 			continue
 fi
 
@@ -28,7 +28,7 @@ if [[ "$dst_port" == "7331" ]] ; then
 						source ./dero_convert_monero.sh
 						source ./monero_tx.sh
 					else
-						echo "Monero address is invalid"
+						echo "$txid XMR addr invalid, found: $comment"
 					fi
 			return
 		fi
