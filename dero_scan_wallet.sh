@@ -7,10 +7,10 @@ echo "Sleep is set for $s seconds"
 echo "DERO Wallet Scan: start"
 dero_pong_db="dero_pong.db"
 if [ ! -s "$dero_pong_db" ] ; then
-        echo "No sales data..."
+        echo "No data found in DERO for XMR database"
 fi
 if [ ! -s "$monero_pong_db" ] ; then
-       echo "No trade data..."
+       echo "No data found in XMR for DERO database"
 fi
 
 touch $dero_pong_db
