@@ -1,9 +1,5 @@
 #!/bin/bash
 
-# Check  if in db
-if [ ! -s "$monero_pong_db" ] ; then
-		echo "No tx history..."
-fi
 
 echo "Scanning: $txid"
 if [[ "$already_processed" =~ "$time" ]] ; then 

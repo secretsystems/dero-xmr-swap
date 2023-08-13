@@ -7,6 +7,11 @@ while true; do
 # Get a list of transfers
 echo "$date XMR Wallet Scan: start"
 monero_pong_db="monero_pong.db"
+# Check  if in db
+if [ ! -s "$monero_pong_db" ] ; then
+                echo "No tx history..."
+fi
+
 touch $monero_pong_db
 export monero_pong_db
 source ./monero_process_sales.sh
