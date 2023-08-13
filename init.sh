@@ -1,12 +1,21 @@
 #!/bin/bash
 date=$(date)
-dero_ip="127.0.0.1"
+dero_ip="192.168.12.208"
 dero_port="10103"
-monero_ip="127.0.0.1"
+monero_ip="192.168.12.176"
 monero_port="28088"
 monero_pong_db="monero_pong.db"
 touch $monero_pong_db
 xmr_dero_ticker=$(source ./ticker.app)
+
+cleanup() {
+    echo "Cleaning up before exiting..."
+    # Additional cleanup actions you may need before exiting
+    exit 0
+}
+
+# Set up the trap to call the cleanup function when SIGINT (Ctrl+C) is received
+trap cleanup SIGINT
 
 export monero_pong_db dero_ip dero_port monero_ip monero_port monero_pong_db xmr_dero_ticker
 
