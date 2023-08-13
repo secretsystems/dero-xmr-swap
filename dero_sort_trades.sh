@@ -1,10 +1,5 @@
 #!/bin/bash
 
-if [ ! -s "$monero_pong_db" ] ; then
-	echo "No trade data..."
-fi
-
-echo "Scanning: $txid"
 if [[ "$already_processed" =~ "$time" ]] ; then 
 	echo "Already processed, skipping"
 			continue
@@ -21,6 +16,7 @@ if [[ "$dst_port" == "7331" ]] ; then
 					valid=$(echo "$response" | jq -r '.result.valid')
 
 					if [[ "$valid" == "true" ]]; then
+						echo "Scanning: $txid"
 						echo "Monero address is valid"
 						addr=$comment
 						export addr

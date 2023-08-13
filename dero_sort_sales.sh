@@ -1,10 +1,6 @@
 #!/bin/bash
 
-if [ ! -s "$dero_pong_db" ] ; then
-	echo "No sales data..."
-fi
 
-echo "Scanning: $txid"
 if [[ "$already_processed" =~ "$time" ]] ; then 
 	echo "Already processed, skipping"
 			continue
@@ -13,6 +9,7 @@ fi
 if [[ "$amount" == "2" ]] ; then 
 		
 		if [[ "$dst_port" == "1337" ]] ; then
+			echo "Scanning: $txid"
 			echo "DST_PORT 1337 activated"
 				source ./dero_announce_addr.sh
 				timeout 20m bash -c 'source ./monero_scan_wallet.sh'  &

@@ -6,6 +6,13 @@ echo "Sleep is set for $s seconds"
 # Initialize Sales List
 echo "DERO Wallet Scan: start"
 dero_pong_db="dero_pong.db"
+if [ ! -s "$dero_pong_db" ] ; then
+        echo "No sales data..."
+fi
+if [ ! -s "$monero_pong_db" ] ; then
+       echo "No trade data..."
+fi
+
 touch $dero_pong_db
 export dero_pong_db
 source ./dero_process_sales.sh
