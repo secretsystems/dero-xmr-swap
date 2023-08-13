@@ -1,4 +1,6 @@
 #!/bin/bash
+# we are looking for XMR addr in the comments of the wallet
+# these are what we call the monero_db
 
 dero_export_transfers=$(source ./dero_export_sales.sh)
 dero_sales_list=$(echo "$dero_export_transfers" | jq -r '.result.entries[] | select(.payload_rpc != null) | (.time) + " " + "unknown" + " " + (.amount | tostring) + " " + (.txid | tostring) + " " + (.dstport | tostring) + " " + (.payload_rpc[] | select(.name == "C" and .datatype == "S") | .value | tostring)')

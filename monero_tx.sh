@@ -23,7 +23,7 @@ response=$(curl -u user:pass --digest -s -X POST -H 'Content-type: application/j
 txid=$(echo "$response" | jq -r '.result.tx_hash')
 if [[ "$txid" != "null" ]]; then
     echo "$txid"
-	printf "sale %s %s %s %s\n" "$time" "$addr" "$amnt" "$txid" | tee >> $monero_pong_db
+	printf "sale %s %s %s %s\n" "$time" "$addr" "$amnt" "$txid" | tee >> $dero_pong_db
 	else
 	echo "Transfer failed"
 	echo "XMR TXID: $response"
