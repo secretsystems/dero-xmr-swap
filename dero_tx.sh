@@ -1,4 +1,4 @@
-echo "tx being delivered"
+echo "DERO tx being delivered"
 # Construct the transfer request payload
 payload=$(jq -n --arg addr "$addr" --arg amnt "$amnt" --arg scid "$scid" \
 	'{
@@ -13,11 +13,11 @@ payload=$(jq -n --arg addr "$addr" --arg amnt "$amnt" --arg scid "$scid" \
 		"amount": ($amnt | tonumber)}
 	],
 	"ringsize": 16}}')
-echo $payload
+echo "PAYLOAD STATUS: SENDING ENCRYPTED DERO MSG"
 # Send the transfer request using cURL
 response=$(curl -u user:pass -s -X POST -H 'Content-type: application/json' -d "$payload" http://$dero_ip:$dero_port/json_rpc)
 
 # Check if the transfer was successful
 txid=$(echo "$response" | jq -r '.result.txid')
-echo "$txid"
+echo "PAYLOAD STATUS: SENT WITH DERO TXID $txid"
 printf "sale %s %s %s %s\n" "$time" "$monero_addr" "$amnt" "$txid" | tee >> $monero_pong_db
