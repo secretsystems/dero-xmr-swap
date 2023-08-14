@@ -6,11 +6,14 @@ if [[ "$dst_port" != "7331" ]] ; then
 fi
 
 if [[ "$already_processed" =~ "$time" ]] ; then 
-	echo "DERO TXID: $txid found in XMR for DERO db, skipping"
+	echo "DERO WALLET: tx was already processed, skipping | txid $txid"
 			continue
 fi
 
 if [[ "$dst_port" == "7331" ]] ; then
+	if [[ "$amount" -gt "2" ]] ; then
+                
+		echo "DERO WALLET: received DERO send XMR | txid $txid "
 
 		if [[ "$comment" ]] ; then		
 	
@@ -21,8 +24,7 @@ if [[ "$dst_port" == "7331" ]] ; then
 					valid=$(echo "$response" | jq -r '.result.valid')
 
 					if [[ "$valid" == "true" ]]; then
-						echo "DERO TXID: $txid scanning"
-						echo "Monero address is valid"
+						echo " XMR WALLET: monero address is valid"
 						addr=$comment
 						export addr
 						source ./dero_convert_monero.sh
@@ -32,7 +34,6 @@ if [[ "$dst_port" == "7331" ]] ; then
 					fi
 			return
 		fi
+	fi
 fi
-
-
 

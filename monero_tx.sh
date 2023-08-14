@@ -1,5 +1,5 @@
 #!/bin/bash
-echo "tx being delivered"
+echo " XMR WALLET: tx being delivered"
 
 monero_pong_db="monero_pong.db"
 touch $monero_pong_db
@@ -22,11 +22,13 @@ response=$(curl -u user:pass --digest -s -X POST -H 'Content-type: application/j
 # Check if the transfer was successful
 txid=$(echo "$response" | jq -r '.result.tx_hash')
 if [[ "$txid" != "null" ]]; then
-    echo "$txid"
-	printf "sale %s %s %s %s\n" "$time" "$addr" "$amnt" "$txid" | tee >> $dero_pong_db
+    echo " XMR WALLET: trade complete, writing to db | txid $txid"
+	printf "sale %s %s %s %s\n" "$time" "$addr" "$amnt" "$txid" | tee >> $monero_pong_db
 	else
-	echo "Transfer failed"
-	echo "XMR TXID: $response"
+	echo " XMR WALLET: Transfer failed"
+	failed=$(echo "$response" | jq -r '.error.message')
+	echo " XMR WALLET: $failed"
+	echo " XMR WALLET: will try agin until successful"
 fi
 
 

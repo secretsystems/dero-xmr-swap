@@ -14,7 +14,7 @@ export xmr_addr xmr_payment_id
 # Construct the transfer request payload
 payload=$(jq -n --arg addr "$addr" --arg amnt "$amnt" --arg scid "$scid" --arg xmr_addr "$xmr_addr" '{"jsonrpc": "2.0","id": "1","method": "transfer","params": {"transfers": [{"scid": $scid,"destination": $addr,"amount": ($amnt | tonumber),"payload_rpc": [{"name": "C","datatype": "S","value": "Send DERO for XMR: dero1qyw4fl3dupcg5qlrcsvcedze507q9u67lxfpu8kgnzp04aq73yheqqg2ctjn4|port 7331|commemt: XMR addr"}]}],"ringsize": 16}}')
 
-echo "PAYLOAD STATUS: SENDING ENCRYPTED DERO MSG"
+echo "DERO WALLET: sending encrypted pong"
 
 # Send the transfer request using cURL
 response=$(curl -u user:pass -s -X POST -H 'Content-type: application/json' -d "$payload" http://$dero_ip:$dero_port/json_rpc)
@@ -22,7 +22,7 @@ response=$(curl -u user:pass -s -X POST -H 'Content-type: application/json' -d "
 # Check if the transfer was successful
 txid=$(echo "$response" | jq -r '.result.txid')
 if [ -n "$txid" ]; then
-echo "PAYLOAD STATUS: SENT WITH DERO TXID $txid"
+echo "DERO WALLET: sent pong | txid $txid"
 printf "sale %s %s %s %s\n" "$time" "$addr" "$amnt" "$txid" >> "$dero_pong_db"
 else
     echo "PAYLOAD STATUS: FAILED"

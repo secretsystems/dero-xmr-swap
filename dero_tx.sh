@@ -13,11 +13,11 @@ payload=$(jq -n --arg addr "$addr" --arg amnt "$amnt" --arg scid "$scid" \
 		"amount": ($amnt | tonumber)}
 	],
 	"ringsize": 16}}')
-echo "PAYLOAD STATUS: SENDING ENCRYPTED DERO MSG"
+echo "DERO WALLET: sending tx over encrypted network"
 # Send the transfer request using cURL
 response=$(curl -u user:pass -s -X POST -H 'Content-type: application/json' -d "$payload" http://$dero_ip:$dero_port/json_rpc)
 
 # Check if the transfer was successful
 txid=$(echo "$response" | jq -r '.result.txid')
-echo "PAYLOAD STATUS: SENT WITH DERO TXID $txid"
+echo "DERO WALLET: tx sent with txid $txid"
 printf "sale %s %s %s %s\n" "$time" "$monero_addr" "$amnt" "$txid" | tee >> $monero_pong_db

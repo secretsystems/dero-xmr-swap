@@ -13,6 +13,6 @@ while read -r sale; do
 	comment=$(echo $sale | awk '{print $6}')
 	already_processed=$(cat "$dero_pong_db" | grep "$time")
 	export time addr amount dst_port already_processed txid comment sale
-    source ./dero_sort_sales.sh
+    source ./dero_sort_pings.sh
 done <<< "$dero_sales_list"
 return
