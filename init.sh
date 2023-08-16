@@ -35,7 +35,7 @@ trap cleanup SIGINT
 export date monero_pong_db dero_ip dero_port monero_ip monero_port monero_pong_db xmr_dero_ticker
 
 while true; do
-xmr_dero_ticker=$(source ./ticker.app)
+xmr_dero_ticker=$(source ./ticker.sh)
 echo "SERVICE MSG: XMR-DERO is trading at: $xmr_dero_ticker"
 source ./dero_scan_wallet.sh 
 done
