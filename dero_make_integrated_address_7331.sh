@@ -11,7 +11,7 @@ curl -s -X POST \
         {
                 "name": "C",
                 "datatype": "S",
-                "value": "XMR-DERO is trading at '$xmr_dero_ticker' :: complete tx for trade instructs"
+                "value": "You are trading DERO for XMR :: Complete tx for trade instructs to be delivered to your wallet"
         },
         {
                 "name": "D",
