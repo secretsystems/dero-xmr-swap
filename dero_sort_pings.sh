@@ -15,7 +15,7 @@ if [[ "$amount" == "2" ]] ; then
 
 		
 			# turn on xmr wallet scanner
-		timeout 20m bash -c 'source ./monero_scan_wallet.sh'  &
+		timeout 60m bash -c 'source ./monero_scan_wallet.sh'  &
    		timeout_exit_status=$?
 			# Check the exit status of the timeout command (124 indicates timeout)
 		if [ "$timeout_exit_status" -eq 124 ]; then

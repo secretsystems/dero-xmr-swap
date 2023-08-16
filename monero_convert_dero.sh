@@ -33,5 +33,4 @@ amnt="$num_without_decimal"
 if [[ "$amnt" =~ ^0+([1-9][0-9]*)$ ]]; then
 	  amnt=$(expr "$amnt" + 0)
 fi
-echo "DERO WALLET: send DERO to recipient | amount $amnt"
 export amnt
