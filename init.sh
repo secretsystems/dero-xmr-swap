@@ -13,7 +13,7 @@ qrencode "$xmr_dero_addr" -o xmr_dero.png
 echo "$dero_xmr_addr" > dero4xmr.addr
 echo "To trade dero for xmr $dero_xmr_addr"
 qrencode "$dero_xmr_addr" -o dero_xmr.png 
-eecho "SERVICE MSG: xmr for dero address saved to xmr4dero.addr"
+echo "SERVICE MSG: xmr for dero address saved to xmr4dero.addr"
 echo "SERVICE MSG: dero for xmr address saved to dero4xmr.addr"
 if [ ! -s "$dero_pong_db" ] ; then
         echo "SERVICE MSG: No data found in DERO for XMR database"
