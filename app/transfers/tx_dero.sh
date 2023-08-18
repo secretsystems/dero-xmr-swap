@@ -1,6 +1,11 @@
+#!/usr/bin/env bash
+
+# Source common functions and environment variables
+source common.sh
+
 echo "DERO WALLET: tx being delivered"
 echo "DERO WALLET: send DERO to recipient | addr $addr | amount $amnt"
- scid="0000000000000000000000000000000000000000000000000000000000000000"
+
 # Construct the transfer request payload
 payload=$(jq -n --arg addr "$addr" --arg amnt "$amnt" --arg scid "$scid" \
 	'{
@@ -15,6 +20,7 @@ payload=$(jq -n --arg addr "$addr" --arg amnt "$amnt" --arg scid "$scid" \
 		"amount": ($amnt | tonumber)}
 	],
 	"ringsize": 16}}')
+
 echo "DERO WALLET: sending tx over encrypted network"
 # Send the transfer request using cURL
 # echo $payload

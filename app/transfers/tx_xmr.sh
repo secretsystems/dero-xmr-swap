@@ -1,9 +1,9 @@
-#!/bin/bash
-echo " XMR WALLET: tx being delivered"
+#!/usr/bin/env bash
 
-monero_pong_db="monero_pong.db"
-touch $monero_pong_db
-export monero_pong_db
+# Source common functions and environment variables
+source common.sh
+
+echo " XMR WALLET: tx being delivered"
 
 # Construct the transfer request payload
 payload=$(jq -n --arg addr "$addr" --arg amnt "$amnt" \
@@ -23,13 +23,10 @@ response=$(curl -u user:pass --digest -s -X POST -H 'Content-type: application/j
 txid=$(echo "$response" | jq -r '.result.tx_hash')
 if [[ "$txid" != "null" ]]; then
     echo " XMR WALLET: trade complete, writing to db | txid $txid"
-	printf "sale %s %s %s %s\n" "$time" "$addr" "$amnt" "$txid" | tee >> $monero_pong_db
-	else
-	echo " XMR WALLET: Transfer failed"
-	failed=$(echo "$response" | jq -r '.error.message')
-	echo " XMR WALLET: $failed"
-	echo " XMR WALLET: will try agin until successful"
+    printf "sale %s %s %s %s\n" "$time" "$addr" "$amnt" "$txid" | tee >> $monero_pong_db
+else
+    echo " XMR WALLET: Transfer failed"
+    failed=$(echo "$response" | jq -r '.error.message')
+    echo " XMR WALLET: $failed"
+    echo " XMR WALLET: will try again until successful"
 fi
-
-
-

@@ -1,4 +1,7 @@
-#!/bin/bash
+#!/usr/bin/env bash
+
+source common.sh
+
 curl -s \
 -u user:pass --digest \
 -X POST http://$monero_ip:$monero_port/json_rpc \
