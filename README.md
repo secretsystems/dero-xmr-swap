@@ -5,6 +5,10 @@ A user would ping a DERO integrated addr for either instructions on how to trade
 
 The only way that this private service for trading XMR-DERO could be possible is with the aid of DERO's encrypted messageing of up to 128 bytes.
 
+### Youtube Demo
+[![img alt txt](https://pbs.twimg.com/card_img/1698254004370001920/jwNXyJZU?format=jpg&name=small)](https://youtu.be/EWFFbzps2Ds?feature=shared)
+
+
 ## Sell DERO for XMR
 
 ### Obtain Trading Instructions
