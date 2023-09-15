@@ -1,7 +1,4 @@
-#!/usr/bin/env bash
-
-source common.sh
-
+#!/bin/bash
 curl -s -X POST \
   http://$dero_ip:$dero_port/json_rpc \
   -u user:pass \
@@ -10,7 +7,7 @@ curl -s -X POST \
   "jsonrpc": "2.0",
   "id": "1",
   "method": "GetTransfers",
-  "params": 
+  "params":
   {
 	  "coinbase": true,
 	  "out": true,
