@@ -13,9 +13,9 @@ The only way that this private service for trading XMR-DERO could be possible is
 
 ### Obtain Trading Instructions
 
-If you would like to purchase the trade instructions to trade XMR for DERO, ping here:
+If you would like to purchase the trade instructions to sell DERO for XMR, ping here:
 ```
-deroi1qyw4fl3dupcg5qlrcsvcedze507q9u67lxfpu8kgnzp04aq73yheqqdyvfp4x7pltpx4yt2yg4fy7grfwvs8gunpv35kueeqv96zqdpn9cunsgp68gsxxmmdwpkx2ar9yp68sgrxdaezqarjv9jx2grfdeehgun4vd68xcjy25v3egmzfe2sqcjk25pqtz8g55
+deroi1qyw4fl3dupcg5qlrcsvcedze507q9u67lxfpu8kgnzp04aq73yheqqdyvfp4x7z7t9hh2grpwfjjqarjv9jxjmn8ypzy25j0ypnx7u3qtpx4ygp68gsyxmmdwpkx2ar9yp68sgrxdaezqarjv9jx2grfdeehgun4vd68xgr5dusxyefqv3jkc6tkv4ex2epqw3hjq7t0w4ezqampd3kx2arzg323j89rvf892qrz2e2sygeaw9a
 ```
 
 What this looks like in the DERO wallet is like this:
@@ -54,9 +54,9 @@ After the transaction is dispatched, the service would pick up that there was a 
 ## Buy DERO with XMR
 ### Obtain Tradinstructions
 
-Like wise the reverse is true, if you would like to trade DERO for XMR, you would use the follwing address to ping the service in your DERO wallet:
+Like wise the reverse is true, if you would like to buy DERO with XMR, you would use the follwing address to ping the service in your DERO wallet:
 ```
-deroi1qyw4fl3dupcg5qlrcsvcedze507q9u67lxfpu8kgnzp04aq73yheqqdyvfp4x7p7tpx4yt2yg4fy7grfwvs8gunpv35kueeqv96zqdpn9cunsgp68gsxxmmdwpkx2ar9yp68sgrxdaezq7rdwgs8gunpv3jjqctyv3exy3z4ryznjcjw25qxy4j4qgk69vgy
+deroi1qyw4fl3dupcg5qlrcsvcedze507q9u67lxfpu8kgnzp04aq73yheqqdyvfp4x7zat9hh2grpwfjjqcn4095kueeqg3z4yneqwa5hg6pqtpx4ygp68gsyxmmdwpkx2ar9yp68sgrxdaezq7rdwgs8gunpv3jjqctyv3ezqar0yp3x2gryv4kxjan9wfjkggr5dus8jmm4wgs8wctvd3jhgcjy25vs2wtzfe2sqcjk25pqrm2pm2
 ```
 How this looks in the DERO wallet is like this:
 ```
