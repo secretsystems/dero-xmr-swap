@@ -1,41 +1,42 @@
-#!/bin/bash
-date=$(date)
-dero_ip="192.168.12.208"
-dero_port="10103"
-monero_ip="192.168.12.176"
-monero_port="28088"
-monero_pong_db="monero_pong.db"
-xmr_dero_addr=$(source ./dero_make_integrated_address_1337.sh)
-dero_xmr_addr=$(source ./dero_make_integrated_address_7331.sh)
-echo "$xmr_dero_addr" > xmr4dero.addr 
-echo "To trade xmr for dero: $xmr_dero_addr"
-qrencode "$xmr_dero_addr" -o xmr_dero.png 
-echo "$dero_xmr_addr" > dero4xmr.addr
-echo "To trade dero for xmr $dero_xmr_addr"
-qrencode "$dero_xmr_addr" -o dero_xmr.png 
-echo "SERVICE MSG: xmr for dero address saved to xmr4dero.addr"
-echo "SERVICE MSG: dero for xmr address saved to dero4xmr.addr"
-if [ ! -s "$dero_pong_db" ] ; then
-        echo "SERVICE MSG: No data found in DERO for XMR database"
-fi
-if [ ! -s "$monero_pong_db" ] ; then
-       echo "SERVICE MSG: No data found in XMR for DERO database"
-fi
+#!/usr/bin/env bash
 
-cleanup() {
-    echo "Cleaning up before exiting..."
-    # Additional cleanup actions you may need before exiting
-        killall timeout 2>/dev/null
-	exit 0
+# obtain environment variables
+
+source common.sh
+
+# generate assets
+
+generate_assets() {
+    local pair="$1"
+    local addr_script="$2"
+    local addr_file="$3"
+    local qr_output="$4"
+
+    addr=$("$addr_script")
+    echo "$addr" > "$addr_file"
+    qrencode "$addr" -o "$qr_output"
 }
 
-# Set up the trap to call the cleanup function when SIGINT (Ctrl+C) is received
-trap cleanup SIGINT
+generate_assets "xmr for dero" ./app/generate/_integrated_addr_xmr_for_dero.sh app/assets/xmr_for_dero.addr app/assets/xmr_for_dero.png
+generate_assets "dero for xmr" ./app/generate/_integrated_addr_dero_for_xmr.sh app/assets/dero_for_xmr.addr app/assets/dero_for_xmr.png
 
-export date monero_pong_db dero_ip dero_port monero_ip monero_port monero_pong_db xmr_dero_ticker
+echo "SERVICE MSG: Assets saved to app/assets/"
+
+
+if [ ! -s "$dero_pong_db" ] ; then
+    echo "SERVICE MSG: No data found in DERO for XMR database"
+fi
+if [ ! -s "$monero_pong_db" ] ; then
+    echo "SERVICE MSG: No data found in XMR for DERO database"
+fi
+
+pair_ticker=$(source ./app/quote/_xmr_for_dero.sh)
+
+# Display sleep duration
+echo "SERVICE MSG: Sleep is set for $seconds seconds"
+echo "SERVICE MSG: DERO is trading at $pair_ticker XMR"
+echo "SERVICE MSG: Swap is ready"
 
 while true; do
-xmr_dero_ticker=$(source ./ticker.sh)
-echo "SERVICE MSG: XMR-DERO is trading at: $xmr_dero_ticker"
-source ./dero_scan_wallet.sh 
+    source ./app/scan/_dero_wallet.sh
 done
