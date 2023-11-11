@@ -11,10 +11,10 @@ scid="0000000000000000000000000000000000000000000000000000000000000000"
 response=$(source ./app/generate/_integrated_addr_xmr_with_pay_id.sh)
 
 # Extract the integrated Monero address
-xmr_addr=$(echo "$response" | jq -r '.result.integrated_address')
+xmr_addr=$(echo "$response" | jq -r '.integrated_address')
 
 # Extract the integrated Monero payment ID
-xmr_payment_id=$(echo "$response" | jq -r '.result.payment_id')
+xmr_payment_id=$(echo "$response" | jq -r '.payment_id')
 
 # Export variables for later use
 export xmr_addr xmr_payment_id
