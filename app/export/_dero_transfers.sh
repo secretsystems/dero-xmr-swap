@@ -9,8 +9,6 @@ curl -s -X POST \
   "method": "GetTransfers",
   "params":
   {
-	  "coinbase": true,
-	  "out": true,
 	  "in": true
   }
 }'

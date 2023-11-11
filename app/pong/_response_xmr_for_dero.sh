@@ -31,7 +31,7 @@ payload=$(jq -n --arg addr "$addr" --arg amnt "$amnt" --arg scid "$scid" --arg x
     }
 }')
 
-echo "DERO WALLET: sending encrypted pong"
+echo "SERVICE MSG: Sending encrypted pong"
 
 # Send the transfer request using cURL
 response=$(curl -u $user:$pass -s -X POST -H 'Content-type: application/json' -d "$payload" http://$dero_ip:$dero_port/json_rpc)
@@ -39,7 +39,7 @@ response=$(curl -u $user:$pass -s -X POST -H 'Content-type: application/json' -d
 # Check if the transfer was successful
 txid=$(echo "$response" | jq -r '.result.txid')
 if [ -n "$txid" ]; then
-    echo "DERO WALLET: sent pong | txid $txid"
+    echo "SERVICE MSG: Sent pong | txid $txid"
     printf "sale %s %s %s %s\n" "$time" "$addr" "$amnt" "$txid" >> "$dero_pong_db"
 else
     echo "PAYLOAD STATUS: FAILED"

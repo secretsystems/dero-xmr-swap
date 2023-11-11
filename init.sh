@@ -14,7 +14,6 @@ generate_assets() {
 
     addr=$("$addr_script")
     echo "$addr" > "$addr_file"
-    echo "SERVICE MSG: trade $pair using $addr_file"
     qrencode "$addr" -o "$qr_output"
     echo "SERVICE MSG: Assets saved to $addr_file"
 }
@@ -30,20 +29,13 @@ if [ ! -s "$monero_pong_db" ] ; then
     echo "SERVICE MSG: No data found in XMR for DERO database"
 fi
 
+pair_ticker=$(source ./app/quote/_xmr_for_dero.sh)
+
+# Display sleep duration
+echo "SERVICE MSG: Sleep is set for $seconds seconds"
+echo "SERVICE MSG: DERO is trading at $pair_ticker XMR"
+echo "SERVICE MSG: Swap is ready"
 
 while true; do
-    xmr_dero_ticker=$(source ./app/quote/_xmr_for_dero.sh)
-    echo "SERVICE MSG: XMR-DERO is trading at: $xmr_dero_ticker"
     source ./app/scan/_dero_wallet.sh
 done
-
-# Set up the trap to call the cleanup function when SIGINT (Ctrl+C) is received
-trap cleanup SIGINT
-
-cleanup() {
-    echo "Cleaning up before exiting..."
-
-    # Additional cleanup actions you may need before exiting
-    killall timeout 2>/dev/null
-	exit 0
-}

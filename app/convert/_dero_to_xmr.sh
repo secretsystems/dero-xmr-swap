@@ -24,4 +24,4 @@ trade_xmr=$(echo "$amount_xmr * 0.99" | bc)
 # Remove decimals and leading zeroes
 amnt=$(echo "$trade_xmr" | sed 's/\([0-9]*\.[0-9]\{1,\}\)0*$/\1/;s/\.$//')
 
-echo "XMR WALLET: send XMR to recipient | amount $amnt"
+echo "SERVICE MSG: send XMR to recipient | amount $amnt"

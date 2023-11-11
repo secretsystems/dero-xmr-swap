@@ -4,7 +4,7 @@
 source common.sh
 
 # Get a list of transfers from Monero
-monero_get_transfers=$(source ./app/sexport/_xmr_transfers.sh)
+monero_get_transfers=$(source ./app/export/_xmr_transfers.sh)
 monero_sales_list=$(echo $monero_get_transfers | jq -r '.result.in[] | (.timestamp | tostring) + " " + (.address) + " " + (.amount | tostring) + " " + (.txid) + " " + (.payment_id)')
 
 # Process each Monero sale entry

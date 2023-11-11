@@ -3,7 +3,7 @@
 # Source common functions and environment variables
 source common.sh
 
-echo " XMR WALLET: tx being delivered"
+echo " SERVICE MSG: tx being delivered"
 
 # Construct the transfer request payload
 payload=$(jq -n --arg addr "$addr" --arg amnt "$amnt" \
@@ -22,11 +22,11 @@ response=$(curl -u $user:$pass --digest -s -X POST -H 'Content-type: application
 # Check if the transfer was successful
 txid=$(echo "$response" | jq -r '.result.tx_hash')
 if [[ "$txid" != "null" ]]; then
-    echo " XMR WALLET: trade complete, writing to db | txid $txid"
+    echo " SERVICE MSG: trade complete, writing to db | txid $txid"
     printf "sale %s %s %s %s\n" "$time" "$addr" "$amnt" "$txid" | tee >> $monero_pong_db
 else
-    echo " XMR WALLET: Transfer failed"
+    echo " SERVICE MSG: Transfer failed"
     failed=$(echo "$response" | jq -r '.error.message')
-    echo " XMR WALLET: $failed"
-    echo " XMR WALLET: will try again until successful"
+    echo " SERVICE MSG: $failed"
+    echo " SERVICE MSG: will try again until successful"
 fi

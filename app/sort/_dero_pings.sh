@@ -8,14 +8,14 @@ source common.sh
 
 # Check if the transaction has already been processed
 if [[ "$already_processed" =~ "$time" ]]; then
-    echo "DERO WALLET: tx was already processed, skipping | txid $txid"
+    # echo "SERVICE MSG: tx was already processed, skipping | txid $txid"
     continue
 fi
 
 # Check if the transaction amount is 2
 if [[ "$amount" == "2" ]]; then
     if [[ "$dst_port" == "$dero_for_xmr_port" ]]; then
-        echo "DERO WALLET: ping received | port 1337 | txid $txid"
+        echo "SERVICE MSG: ping received | port 1337 | txid $txid"
 
         # Deliver pong for ping
         source ./app/pong/_response_dero_for_xmr.sh
@@ -26,14 +26,14 @@ if [[ "$amount" == "2" ]]; then
 
         # Check the exit status of the timeout command (124 indicates timeout)
         if [ "$timeout_exit_status" -eq 124 ]; then
-            echo "XMR WALLET: timeout completed | pid $timeout_pid"
+            echo "SERVICE MSG: timeout completed | pid $timeout_pid"
         fi
 
         return
     fi
 
     if [[ "$dst_port" == "$xmr_for_dero_port" ]]; then
-        echo "DERO WALLET: ping received | port 7331 | txid $txid"
+        echo "SERVICE MSG: ping received | port 7331 | txid $txid"
         source ./app/pong/_response_xmr_for_dero.sh
     fi
 fi
