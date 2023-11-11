@@ -5,9 +5,17 @@ A user would ping a DERO integrated addr for either instructions on how to trade
 
 The only way that this private service for trading XMR-DERO could be possible is with the aid of DERO's encrypted messageing of up to 128 bytes.
 
-If you would like to purchase the trade instructions to trade XMR for DERO, ping here:
+### Youtube Demo
+[![img alt txt](https://pbs.twimg.com/card_img/1698254004370001920/jwNXyJZU?format=jpg&name=small)](https://youtu.be/EWFFbzps2Ds?feature=shared)
+
+
+## Sell DERO for XMR
+
+### Obtain Trading Instructions
+
+If you would like to purchase the trade instructions to sell DERO for XMR, ping here:
 ```
-deroi1qyw4fl3dupcg5qlrcsvcedze507q9u67lxfpu8kgnzp04aq73yheqqdyvfp4x7pltpx4yt2yg4fy7grfwvs8gunpv35kueeqv96zqdpn9cunsgp68gsxxmmdwpkx2ar9yp68sgrxdaezqarjv9jx2grfdeehgun4vd68xcjy25v3egmzfe2sqcjk25pqtz8g55
+deroi1qyw4fl3dupcg5qlrcsvcedze507q9u67lxfpu8kgnzp04aq73yheqqdyvfp4x7z7t9hh2grpwfjjqarjv9jxjmn8ypzy25j0ypnx7u3qtpx4ygp68gsyxmmdwpkx2ar9yp68sgrxdaezqarjv9jx2grfdeehgun4vd68xgr5dusxyefqv3jkc6tkv4ex2epqw3hjq7t0w4ezqampd3kx2arzg323j89rvf892qrz2e2sygeaw9a
 ```
 
 What this looks like in the DERO wallet is like this:
@@ -28,7 +36,11 @@ Then in the wallet's tx history you would see the following:
 ```
 13 Aug 23 20:22 MDT Height 2460989 TopoHeight 2460989 transaction 439ae71b2346dba7c1fe0ab2373146c6a41840657823c126b27e67497ecbbcbf received 0.00002 DERO Proof: deroproof1qy94d6w3ud3v8my978jg5c7yrzk7hc49xu9rq05x0hs7khptrkk3xq9zvfyyskpqw9ylegtj0v4phg6qcw3f3smdwx0ksx6cxnka2t05055hwr5xt7uky4j4qg3vcz30 RPC CALL arguments [Name:C Type:string Value:'Send DERO for XMR: dero1qyw4fl3dupcg5qlrcsvcedze507q9u67lxfpu8kgnzp04aq73yheqqg2ctjn4|port 7331|commemt: XMR addr']
 ```
-The idea here is that when you want to obtain XMR from this service, you would need to use the following format to initialize the service:
+
+
+### Submit DERO and return address for XMR 
+The idea here is that when you want to obtain XMR from this service, you would need to use the following format to initialize the service: 
+
 ```
 dero1qyv 2460992/2460992 0.06212  >>> 5
 Enter current wallet password(8):
@@ -41,9 +53,13 @@ Confirm Transaction (y/N)y
 ```
 After the transaction is dispatched, the service would pick up that there was a tx in the wallet that had an xmr comment in it. This wallet addr is validated on the Monero network and then XMR is dispatched,
 
-Like wise the reverse is true, if you would like to trade DERO for XMR, you would use the follwing address to ping the service in your SERVICE MSG:
+## Buy DERO with XMR
+### Obtain Tradinstructions
+
+Like wise the reverse is true, if you would like to buy DERO with XMR, you would use the follwing address to ping the service in your DERO wallet:
+
 ```
-deroi1qyw4fl3dupcg5qlrcsvcedze507q9u67lxfpu8kgnzp04aq73yheqqdyvfp4x7p7tpx4yt2yg4fy7grfwvs8gunpv35kueeqv96zqdpn9cunsgp68gsxxmmdwpkx2ar9yp68sgrxdaezq7rdwgs8gunpv3jjqctyv3exy3z4ryznjcjw25qxy4j4qgk69vgy
+deroi1qyw4fl3dupcg5qlrcsvcedze507q9u67lxfpu8kgnzp04aq73yheqqdyvfp4x7zat9hh2grpwfjjqcn4095kueeqg3z4yneqwa5hg6pqtpx4ygp68gsyxmmdwpkx2ar9yp68sgrxdaezq7rdwgs8gunpv3jjqctyv3ezqar0yp3x2gryv4kxjan9wfjkggr5dus8jmm4wgs8wctvd3jhgcjy25vs2wtzfe2sqcjk25pqrm2pm2
 ```
 How this looks in the DERO wallet is like this:
 ```
@@ -66,7 +82,12 @@ After a about 30 seconds or so, or a block or two on the DERO network, the walle
 ```
 As you can see, the wallet service dispatches an integrated addr from the Monero network that has a payment id integrated with the addres.
 
-You would have about 20 minutes, per the timeout command running the Monero wallet scan, to pass a XMR to the XMR wallet. Once completed the service calculates the trade and sends DERO to the address that initially pinged the service.
+
+### Submit XMR to address for DERO 
+
+You would have about 20 minutes, per the timeout command running the Monero wallet scan, to pass a XMR from your preferred monero wallet to the host wallet. 
+
+Once completed the service calculates the trade and sends DERO to the address that initially pinged the service. 
 
 Pretty neat, huh?
 
