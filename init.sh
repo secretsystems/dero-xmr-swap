@@ -15,11 +15,12 @@ generate_assets() {
     addr=$("$addr_script")
     echo "$addr" > "$addr_file"
     qrencode "$addr" -o "$qr_output"
-    echo "SERVICE MSG: Assets saved to $addr_file"
 }
 
 generate_assets "xmr for dero" ./app/generate/_integrated_addr_xmr_for_dero.sh app/assets/xmr_for_dero.addr app/assets/xmr_for_dero.png
 generate_assets "dero for xmr" ./app/generate/_integrated_addr_dero_for_xmr.sh app/assets/dero_for_xmr.addr app/assets/dero_for_xmr.png
+
+echo "SERVICE MSG: Assets saved to app/assets/"
 
 
 if [ ! -s "$dero_pong_db" ] ; then
