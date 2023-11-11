@@ -13,10 +13,10 @@ echo "DERO Wallet: start scanning"
 touch $dero_pong_db
 
 # Process ping data
-source ./dero_process_pings.sh
+source ./app/identify/_pings.sh
 
 # Process trade data
-source ./dero_process_trades.sh
+source ./app/identify/_dero_for_xmr_trades.sh
 
 # Wait for the specified duration
 echo "DERO WALLET: sleep"

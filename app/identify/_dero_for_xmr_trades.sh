@@ -4,7 +4,7 @@
 source common.sh
 
 # Export DERO transfers data
-dero_export_transfers=$(source ./dero_export_sales.sh)
+dero_export_transfers=$(source ./app/export/_dero_transfers.sh)
 
 # Extract relevant information from dero_sales_list
 dero_sales_list=$(echo "$dero_export_transfers" | jq -r '.result.entries[] | select(.payload_rpc != null) | (.time) + " " + "unknown" + " " + (.amount | tostring) + " " + (.txid | tostring) + " " + (.dstport | tostring) + " " + (.payload_rpc[] | select(.name == "C" and .datatype == "S") | .value | tostring)')
@@ -19,9 +19,9 @@ while read -r sale; do
     comment=$(echo $sale | awk '{print $6}')
     already_processed=$(cat "$monero_pong_db" | grep "$time")
     export time addr amount dst_port already_processed txid comment sale
-    
+
     # Perform sorting and processing of DERO trades
-    source ./dero_sort_trades.sh
+    source ./app/sort/_dero_trades.sh
 done <<< "$dero_sales_list"
 
 return

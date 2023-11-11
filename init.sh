@@ -11,16 +11,16 @@ generate_assets() {
     local addr_script="$2"
     local addr_file="$3"
     local qr_output="$4"
-    
+
     addr=$("$addr_script")
     echo "$addr" > "$addr_file"
-    echo "SERVICE MSG: trade $pair using $addr"
+    echo "SERVICE MSG: trade $pair using $addr_file"
     qrencode "$addr" -o "$qr_output"
     echo "SERVICE MSG: Assets saved to $addr_file"
 }
 
-generate_assets "xmr for dero" ./app/addresses/generate_integrated_addr_xmr_for_dero.sh app/assets/xmr4dero.addr app/assets/xmr_dero.png
-generate_assets "dero for xmr" ./app/addresses/generate_integrated_addr_dero_for_xmr.sh app/assets/dero4xmr.addr app/assets/dero_xmr.png
+generate_assets "xmr for dero" ./app/generate/_integrated_addr_xmr_for_dero.sh app/assets/xmr_for_dero.addr app/assets/xmr_for_dero.png
+generate_assets "dero for xmr" ./app/generate/_integrated_addr_dero_for_xmr.sh app/assets/dero_for_xmr.addr app/assets/dero_for_xmr.png
 
 
 if [ ! -s "$dero_pong_db" ] ; then
@@ -31,11 +31,11 @@ if [ ! -s "$monero_pong_db" ] ; then
 fi
 
 
-# while true; do
-    xmr_dero_ticker=$(source ./app/utils/ticker_xmr_for_dero.sh)
+while true; do
+    xmr_dero_ticker=$(source ./app/quote/_xmr_for_dero.sh)
     echo "SERVICE MSG: XMR-DERO is trading at: $xmr_dero_ticker"
-    source ./app/scanning/scan_dero_wallet.sh 
-# done
+    source ./app/scan/_dero_wallet.sh
+done
 
 # Set up the trap to call the cleanup function when SIGINT (Ctrl+C) is received
 trap cleanup SIGINT
@@ -47,5 +47,3 @@ cleanup() {
     killall timeout 2>/dev/null
 	exit 0
 }
-
-

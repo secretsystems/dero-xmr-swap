@@ -26,13 +26,13 @@ payload=$(jq -n --arg addr "$addr" --arg amnt "$amnt" --arg scid "$scid" --arg x
     "method": "transfer",
     "params": {
         "ringsize": 16,
-        "transfers": 
+        "transfers":
         [
             {
                 "scid": $scid,
                 "destination": $addr,
                 "amount": ($amnt | tonumber),
-                "payload_rpc": 
+                "payload_rpc":
                 [
                     {
                         "name": "C",
@@ -48,7 +48,7 @@ payload=$(jq -n --arg addr "$addr" --arg amnt "$amnt" --arg scid "$scid" --arg x
 echo "DERO WALLET: sending encrypted pong"
 
 # Send the transfer request using cURL
-response=$(curl -u user:pass -s -X POST -H 'Content-type: application/json' -d "$payload" http://$dero_ip:$dero_port/json_rpc)
+response=$(curl -u $user:$pass -s -X POST -H 'Content-type: application/json' -d "$payload" http://$dero_ip:$dero_port/json_rpc)
 
 # Check if the transfer was successful
 txid=$(echo "$response" | jq -r '.result.txid')

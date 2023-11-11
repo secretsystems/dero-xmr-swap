@@ -13,10 +13,8 @@ touch $monero_pong_db
 
 # Continuous loop
 while true; do
-
-
     # Process sales data
-    source ./monero_process_sales.sh
+    source ./app/identify/_xmr_for_dero_trades.sh
     echo "XMR WALLET: pid $timeout_pid sleep"
     sleep $seconds
 done

@@ -3,7 +3,7 @@
 source common.sh
 
 curl -s \
--u user:pass --digest \
+-u $user:$pass --digest \
 -X POST http://$monero_ip:$monero_port/json_rpc \
 -H 'Content-Type: application/json' \
 -d '{
@@ -14,4 +14,4 @@ curl -s \
   {"in":true,
   "account_index":[]
   }
-  }' 
+  }'
