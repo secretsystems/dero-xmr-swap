@@ -7,7 +7,7 @@ source common.sh
 get_usdt_dero_quote=$(curl -s -X GET https://tradeogre.com/api/v1/ticker/dero-usdt | jq -r '. | (.bid)')
 
 # Calculate USDT value of the transfer amount in DERO
-amount_usdt=$(calc "$get_usdt_dero_quote" * "$amount" * 0.00001)
+amount_usdt=$(echo "$get_usdt_dero_quote * $amount * 0.00001" | bc -l)
 
 # Get bid for USDT-XMR pair from TradeOgre API
 get_usdt_xmr_bid=$(curl -s -X GET https://tradeogre.com/api/v1/ticker/xmr-usdt | jq -r '. | (.bid)')
