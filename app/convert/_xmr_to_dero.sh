@@ -3,6 +3,7 @@
 # Source common functions and environment variables
 source common.sh
 
+
 # Collect quote for USDT-XMR pair from TradeOgre API
 get_usdt_xmr_quote=$(curl -s -X GET https://tradeogre.com/api/v1/ticker/xmr-usdt | jq -r '. | (.ask)')
 
