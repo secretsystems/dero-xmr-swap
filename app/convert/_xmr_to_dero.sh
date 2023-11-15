@@ -3,12 +3,11 @@
 # Source common functions and environment variables
 source common.sh
 
-
 # Collect quote for USDT-XMR pair from TradeOgre API
 get_usdt_xmr_quote=$(curl -s -X GET https://tradeogre.com/api/v1/ticker/xmr-usdt | jq -r '. | (.ask)')
 
 # Calculate USDT value of the transfer amount in Monero
-amount_usdt=$(calc "$get_usdt_xmr_quote" * "$amount" * 0.000000000001)
+amount_usdt=$(echo "$get_usdt_xmr_quote * $amount * 0.000000000001" | bc)
 
 # Get ask for USDT-DERO pair from TradeOgre API
 get_usdt_dero_ask=$(curl -s -X GET https://tradeogre.com/api/v1/ticker/dero-usdt | jq -r '. | (.ask)')
