@@ -22,11 +22,12 @@ fee_dero=$(echo "$amount_dero * 0.01" | bc)
 trade_dero=$(echo "$amount_dero * 0.99" | bc)
 
 # Remove decimals and leading zeroes
-amnt=$(echo "$trade_dero" | sed 's/\([0-9]*\.[0-9]\{1,\}\)0*$/\1/;s/\.$//')
-
+amnt=$(echo "$trade_dero" | awk '{ gsub(/^0+|\./,""); print}')
+echo $amnt
 # Trim leading zeroes
 if [[ "$amnt" =~ ^0+([1-9][0-9]*)$ ]]; then
 	  amnt=$(expr "$amnt" + 0)
 fi
 
+echo $amnt
 export amnt
