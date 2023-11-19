@@ -3,3 +3,4 @@
 *.addr
 *.png
 *.todo
+*.env
