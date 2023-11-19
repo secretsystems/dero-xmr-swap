@@ -133,6 +133,14 @@ This is simpley an example of how to run this service.
 ```
 ./monero-wallet-rpc --rpc-bind-port 28088 --rpc-bind-ip 0.0.0.0 --wallet-file monero-wallet --password secret-server --confirm-external-bind --trusted-daemon --rpc-login user:pass
 ```
+5. Configure app/config/.env
+There isn't a `.env` file, but there is a `app/config/dot_env.sample` you can use to make your `.env` file.
+
+After you have configured, be sure to:
+```sh
+source app/config/.env
+```
+
 5. Turn on xmr-dero swap
 ```
 ./init.sh
