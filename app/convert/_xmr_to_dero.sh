@@ -20,7 +20,7 @@ echo "SERVICE MSG: the xmr $amount is worth at $amount_dero"
 
 # Calculate a % of DERO as fee
 fee_dero=$(echo "$amount_dero * 0.01" | bc)
-echo "SERVICE MSG: the xmr $amount_dero is worth at $fee_dero"
+echo "SERVICE MSG: the dero $amount_dero is worth at $fee_dero"
 
 # Calculate a % of DERO for the trade after fee deduction
 trade_dero=$(echo "$amount_dero * 0.99" | bc)
