@@ -3,4 +3,4 @@
 *.addr
 *.png
 *.todo
-*.env
+app/config/*.env
