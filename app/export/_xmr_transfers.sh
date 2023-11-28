@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-source common.sh
+source bin/common.sh
 
 curl -s \
 -u $user:$pass --digest \

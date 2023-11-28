@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # Source common functions and environment variables
-source common.sh
+source bin/common.sh
 
 # Collect quote for USDT-XMR pair from TradeOgre API
 get_usdt_xmr_quote=$(curl -s -X GET https://tradeogre.com/api/v1/ticker/xmr-usdt | jq -r '. | (.ask)')
@@ -20,7 +20,7 @@ echo "SERVICE MSG: the xmr $amount is worth at $amount_dero"
 
 # Calculate a % of DERO as fee
 fee_dero=$(echo "$amount_dero * 0.01" | bc)
-echo "SERVICE MSG: the dero $amount_dero is worth at $fee_dero"
+echo "SERVICE MSG: the dero $amount_dero fee is $fee_dero"
 
 # Calculate a % of DERO for the trade after fee deduction
 trade_dero=$(echo "$amount_dero * 0.99" | bc)

@@ -4,7 +4,7 @@
 # Anything more is considered a trade
 
 # Source common functions and environment variables
-source common.sh
+source bin/common.sh
 
 # Check if the transaction has already been processed
 if [[ "$already_processed" =~ "$time" ]]; then

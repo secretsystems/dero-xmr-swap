@@ -1,5 +1,5 @@
 #!/bin/bash
-source ./common.sh
+source bin/common.sh
 
 curl -s -X POST \
   http://$dero_ip:$dero_port/json_rpc \

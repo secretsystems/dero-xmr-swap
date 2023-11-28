@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # Source common functions and environment variables
-source common.sh
+source bin/common.sh
 
 echo "SERVICE MSG: tx being delivered"
 echo "SERVICE MSG: send DERO to recipient | addr $addr | amount $amnt"
