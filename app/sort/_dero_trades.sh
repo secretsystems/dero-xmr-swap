@@ -22,7 +22,7 @@ if [[ "$dst_port" == "$xmr_for_dero_port" && "$amount" -gt "2" ]]; then
     if [[ "$comment" ]]; then
 
         # Send the request to the Monero daemon's JSON-RPC interface
-        response=$(curl -u $user:$pass --digest --silent --data-binary '{"jsonrpc":"2.0","id":"0","method":"validate_address","params":{"address":"'"$comment"'","any_net_type":true,"allow_openalias":true}}' -H 'content-type: application/json;' http://$monero_ip:$monero_port/json_rpc)
+        response=$(curl -u $user:$monero_pass --digest --silent --data-binary '{"jsonrpc":"2.0","id":"0","method":"validate_address","params":{"address":"'"$comment"'","any_net_type":true,"allow_openalias":true}}' -H 'content-type: application/json;' http://$monero_ip:$monero_port/json_rpc)
 
         # Check if the Monero address is valid
         valid=$(echo "$response" | jq -r '.result.valid')

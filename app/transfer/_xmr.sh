@@ -17,7 +17,7 @@ payload=$(jq -n --arg addr "$addr" --arg amnt "$amnt" \
     }}')
 
 # Send the transfer request using cURL
-response=$(curl -u $user:$pass --digest -s -X POST -H 'Content-type: application/json' -d "$payload" http://$monero_ip:$monero_port/json_rpc)
+response=$(curl -u $user:$monero_pass --digest -s -X POST -H 'Content-type: application/json' -d "$payload" http://$monero_ip:$monero_port/json_rpc)
 
 # Check if the transfer was successful
 txid=$(echo "$response" | jq -r '.result.tx_hash')
