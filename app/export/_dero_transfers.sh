@@ -3,7 +3,7 @@ source bin/common.sh
 
 curl -s -X POST \
   http://$dero_ip:$dero_port/json_rpc \
-  -u $user:$pass \
+  -u $user:$dero_pass \
   -H 'content-type: application/json' \
   -d '{
   "jsonrpc": "2.0",

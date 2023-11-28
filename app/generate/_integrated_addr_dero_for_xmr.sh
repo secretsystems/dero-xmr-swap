@@ -38,7 +38,7 @@ payload=$(jq -n --arg payload_text "You are trading DERO for XMR :: Complete tx 
 # Send the payload using cURL and parse the response with jq to extract the integrated address
 response=$(curl -s -X POST \
     http://$dero_ip:$dero_port/json_rpc \
-    -u $user:$pass \
+    -u $user:$dero_pass \
     -H 'content-type: application/json' \
     -d "$payload" | jq -r '.result.integrated_address')
 
