@@ -3,7 +3,7 @@ source bin/common.sh
 
 # Send a JSON-RPC request to Monero node to generate an integrated address
 payload=$(curl -s \
-    -u $user:$pass --digest \
+    -u $user:$monero_pass --digest \
     -X POST http://$monero_ip:$monero_port/json_rpc \
     -H 'Content-Type: application/json' \
     -d '{

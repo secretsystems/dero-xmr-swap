@@ -24,7 +24,7 @@ payload=$(jq -n --arg addr "$addr" --arg amnt "$amnt" --arg scid "$scid" \
 echo "SERVICE MSG: sending tx over encrypted network"
 # Send the transfer request using cURL
 # echo $payload
-response=$(curl -u $user:$pass -s -X POST -H 'Content-type: application/json' -d "$payload" http://$dero_ip:$dero_port/json_rpc)
+response=$(curl -u $user:$dero_pass -s -X POST -H 'Content-type: application/json' -d "$payload" http://$dero_ip:$dero_port/json_rpc)
 
 # Check if the transfer was successful
 txid=$(echo "$response" | jq -r '.result.txid')

@@ -1,12 +1,10 @@
 # monero script
-user="user"
-pass="pass"
-./monero-wallet-rpc \ 
---rpc-bind-port 28088 \ 
+source common.sh
+./monero-wallet-rpc \
+--rpc-bind-port 28088 \
 --rpc-bind-ip 0.0.0.0 \
 --wallet-file monero-wallet \
---password secret-server \
+--password $mponero_pass\
 --confirm-external-bind \
 --trusted-daemon \
---rpc-login $user:$pass 
-
+--rpc-login $user:$mopnero_pass
