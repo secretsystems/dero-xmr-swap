@@ -7,4 +7,4 @@ source common.sh
 --password $mponero_pass\
 --confirm-external-bind \
 --trusted-daemon \
---rpc-login $user:$mopnero_pass
+--rpc-login $user:$monero_pass
