@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # Source common functions and environment variables
-source common.sh
+source bin/common.sh
 
 # Define the ping amount and scid
 amnt="2"

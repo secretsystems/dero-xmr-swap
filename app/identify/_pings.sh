@@ -2,7 +2,7 @@
 
 
 # Source common functions and environment variables
-source common.sh
+source bin/common.sh
 
 # Export DERO transfers data
 dero_export_transfers=$(source ./app/export/_dero_transfers.sh)

@@ -4,13 +4,13 @@ user="user"
 pass="pass"
 
 # DERO node configuration
-dero_ip="192.168.12.208"
+dero_ip="0.0.0.0"
 dero_port=10103
 dero_pong_db="app/db/dero_pong.db"
 scid="0000000000000000000000000000000000000000000000000000000000000000"
 
 # Monero node configuration
-monero_ip="192.168.12.176"
+monero_ip="0.0.0.0"
 monero_port=28088
 monero_pong_db="app/db/monero_pong.db"
 

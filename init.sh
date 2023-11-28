@@ -2,7 +2,7 @@
 
 # obtain environment variables
 
-source common.sh
+source bin/common.sh
 
 # generate assets
 

@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # Source common functions and environment variables
-source common.sh
+source bin/common.sh
 
 # Get a list of transfers from Monero
 monero_get_transfers=$(source ./app/export/_xmr_transfers.sh)

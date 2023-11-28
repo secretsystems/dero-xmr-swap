@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # Source common functions and environment variables
-source common.sh
+source bin/common.sh
 
 # Collect quote for USDT-DERO pair from TradeOgre API
 get_usdt_dero_quote=$(curl -s -X GET https://tradeogre.com/api/v1/ticker/dero-usdt | jq -r '. | (.bid)')

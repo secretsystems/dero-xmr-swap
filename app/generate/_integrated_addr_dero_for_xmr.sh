@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # Source common functions and environment variables
-source common.sh
+source bin/common.sh
 
 # Prepare payload using jq with environment variables
 payload=$(jq -n --arg payload_text "You are trading DERO for XMR :: Complete tx for xmr trade addr to be delivered to your wallet" \

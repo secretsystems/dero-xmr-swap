@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # Source common functions and environment variables
-source common.sh
+source bin/common.sh
 
 # Check if the destination port is XMR for DERO port
 if [[ "$dst_port" != "$xmr_for_dero_port" ]]; then

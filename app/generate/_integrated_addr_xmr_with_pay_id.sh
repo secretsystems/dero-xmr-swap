@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-source common.sh
+source bin/common.sh
 
 # Send a JSON-RPC request to Monero node to generate an integrated address
 payload=$(curl -s \
