@@ -11,7 +11,7 @@ fi
 
 # Check if the payment ID matches
 if [[ "$payment_id" == "$xmr_payment_id" ]]; then
-    echo "SERVICE MSG: $payment_id found at $txid"
+    echo "SERVICE MSG: found $payment_id with $txid"
     source ./app/convert/_xmr_to_dero.sh
     source ./app/transfer/_dero.sh
     return
