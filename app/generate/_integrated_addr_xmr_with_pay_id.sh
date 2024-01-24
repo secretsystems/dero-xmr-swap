@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#! /usr/bin/env bash
 source bin/common.sh
 
 # Send a JSON-RPC request to Monero node to generate an integrated address

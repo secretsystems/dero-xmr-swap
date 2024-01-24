@@ -4,7 +4,7 @@
 source bin/common.sh
 
 # Prepare payload using jq with environment variables
-payload=$(jq -n --arg payload_text "You are trading XMR for DERO :: Complete tx for xmr trade addr to be delivered to your wallet" \
+payload=$(jq -n --arg payload_text "Trading XMR for DERO :: Complete tx for trade to deliver info to your wallet" \
 --arg xmr_for_dero_port "$xmr_for_dero_port" '{
     "jsonrpc": "2.0",
     "id": "1",
