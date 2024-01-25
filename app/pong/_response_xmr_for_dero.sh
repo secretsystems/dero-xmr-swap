@@ -3,12 +3,8 @@
 # Source common functions and environment variables
 source bin/common.sh
 
-# Define the ping amount and scid
-amnt="2"
-scid="0000000000000000000000000000000000000000000000000000000000000000"
-
 # Construct the transfer request payload using jq
-payload=$(jq -n --arg addr "$addr" --arg amnt "$amnt" --arg scid "$scid" --arg xmr_addr "$xmr_addr" '{
+payload=$(jq -n --arg addr "$addr" --arg ping "$ping" --arg scid "$scid" --arg dero_address "$dero_address" '{
     "jsonrpc": "2.0",
     "id": "1",
     "method": "transfer",
@@ -17,12 +13,12 @@ payload=$(jq -n --arg addr "$addr" --arg amnt "$amnt" --arg scid "$scid" --arg x
             {
                 "scid": $scid,
                 "destination": $addr,
-                "amount": ($amnt | tonumber),
+                "amount": ($ping | tonumber),
                 "payload_rpc": [
                     {
                         "name": "C",
                         "datatype": "S",
-                        "value": "Send DERO for XMR: dero1qyw4fl3dupcg5qlrcsvcedze507q9u67lxfpu8kgnzp04aq73yheqqg2ctjn4|port 7331|comment: XMR addr"
+                        "value": "Send DERO for XMR:\($dero_address)|port 7331|comment: XMR addr"
                     }
                 ]
             }
@@ -31,16 +27,23 @@ payload=$(jq -n --arg addr "$addr" --arg amnt "$amnt" --arg scid "$scid" --arg x
     }
 }')
 
-echo "SERVICE MSG: Sending encrypted pong"
+echo "SERVICE MSG: $(date '+%Y-%m-%d %H:%M:%S') Sending encrypted pong"
 
 # Send the transfer request using cURL
-response=$(curl -u $user:$dero_pass -s -X POST -H 'Content-type: application/json' -d "$payload" http://$dero_ip:$dero_port/json_rpc)
+response=$(
+    curl \
+    -u $user:$dero_pass \
+    -s \
+    -X POST \
+    -H 'Content-type: application/json' \
+    -d "$payload" \
+    http://$dero_ip:$dero_port/json_rpc)
 
 # Check if the transfer was successful
 txid=$(echo "$response" | jq -r '.result.txid')
 if [ -n "$txid" ]; then
-    echo "SERVICE MSG: Sent pong | txid $txid"
-    printf "sale %s %s %s %s\n" "$time" "$addr" "$amnt" "$txid" >> "$dero_pong_db"
+    echo "SERVICE MSG: $(date '+%Y-%m-%d %H:%M:%S') Sent pong | txid $txid"
+    printf "sale %s %s %s %s\n" "$time" "$addr" "$ping" "$txid" >> "$dero_pong_db"
 else
     echo "PAYLOAD STATUS: FAILED"
 fi

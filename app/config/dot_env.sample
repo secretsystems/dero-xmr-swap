@@ -1,18 +1,21 @@
-# Common configuration
 seconds=18
+ping="2"
 user="user"
-pass="pass"
 
-# DERO node configuration
-dero_ip="0.0.0.0"
+dero_address="dero1qykz2fqtptcnvmr65042jwljpwmglnezax4wms5w4htat20vzsdauqq58979y"
+dero_pass="pass"
+
+# DERO configuration
+dero_ip="127.0.0.1"
 dero_port=10103
 dero_pong_db="app/db/dero_pong.db"
 scid="0000000000000000000000000000000000000000000000000000000000000000"
 
-# Monero node configuration
-monero_ip="0.0.0.0"
+# Monero configuration
+monero_ip="127.0.0.1"
 monero_port=28088
 monero_pong_db="app/db/monero_pong.db"
+monero_pass="pass"
 
 # Integrated address ports
 dero_for_xmr_port=1337
