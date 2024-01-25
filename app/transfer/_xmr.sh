@@ -3,7 +3,7 @@
 # Source common functions and environment variables
 source bin/common.sh
 
-echo "SERVICE MSG: tx being delivered"
+echo "SERVICE MSG: $(date '+%Y-%m-%d %H:%M:%S') tx being delivered"
 
 # Construct the transfer request payload
 payload=$(jq -n --arg addr "$addr" --arg amnt "$amnt" \
@@ -22,11 +22,11 @@ response=$(curl -u $user:$monero_pass --digest -s -X POST -H 'Content-type: appl
 # Check if the transfer was successful
 txid=$(echo "$response" | jq -r '.result.tx_hash')
 if [[ "$txid" != "null" ]]; then
-    echo "SERVICE MSG: trade complete, writing to db | txid $txid"
+    echo "SERVICE MSG: $(date '+%Y-%m-%d %H:%M:%S') trade complete, writing to db | txid $txid"
     printf "sale %s %s %s %s\n" "$time" "$addr" "$amnt" "$txid" | tee >> $monero_pong_db
 else
-    echo "SERVICE MSG: Transfer failed"
+    echo "SERVICE MSG: $(date '+%Y-%m-%d %H:%M:%S') Transfer failed"
     failed=$(echo "$response" | jq -r '.error.message')
-    echo "SERVICE MSG: $failed"
-    echo "SERVICE MSG: will try again until successful"
+    echo "SERVICE MSG: $(date '+%Y-%m-%d %H:%M:%S') $failed"
+    echo "SERVICE MSG: $(date '+%Y-%m-%d %H:%M:%S') will try again until successful"
 fi

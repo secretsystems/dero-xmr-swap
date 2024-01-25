@@ -3,7 +3,7 @@
 # Source common functions and environment variables
 source bin/common.sh
 
-#echo "SERVICE MSG: scanning"
+#echo "SERVICE MSG: $(date '+%Y-%m-%d %H:%M:%S') scanning"
 
 # Create or update DERO pong database
 touch $dero_pong_db
@@ -15,5 +15,5 @@ source ./app/identify/_pings.sh
 source ./app/identify/_dero_for_xmr_trades.sh
 
 # Wait for the specified duration
-#echo "SERVICE MSG: sleep"
+#echo "SERVICE MSG: $(date '+%Y-%m-%d %H:%M:%S') sleep"
 sleep $seconds

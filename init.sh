@@ -20,22 +20,22 @@ generate_assets() {
 generate_assets "xmr for dero" ./app/generate/_integrated_addr_xmr_for_dero.sh app/assets/xmr_for_dero.addr app/assets/xmr_for_dero.png
 generate_assets "dero for xmr" ./app/generate/_integrated_addr_dero_for_xmr.sh app/assets/dero_for_xmr.addr app/assets/dero_for_xmr.png
 
-echo "SERVICE MSG: Assets saved to app/assets/"
+echo "SERVICE MSG: $(date '+%Y-%m-%d %H:%M:%S') Assets saved to app/assets/"
 
 
 if [ ! -s "$dero_pong_db" ] ; then
-    echo "SERVICE MSG: No data found in DERO for XMR database"
+    echo "SERVICE MSG: $(date '+%Y-%m-%d %H:%M:%S') No data found in DERO for XMR database"
 fi
 if [ ! -s "$monero_pong_db" ] ; then
-    echo "SERVICE MSG: No data found in XMR for DERO database"
+    echo "SERVICE MSG: $(date '+%Y-%m-%d %H:%M:%S') No data found in XMR for DERO database"
 fi
 
 pair_ticker=$(source ./app/quote/_xmr_for_dero.sh)
 
 # Display sleep duration
-echo "SERVICE MSG: Sleep is set for $seconds seconds"
-echo "SERVICE MSG: DERO is trading at $pair_ticker XMR"
-echo "SERVICE MSG: Swap is ready"
+echo "SERVICE MSG: $(date '+%Y-%m-%d %H:%M:%S') Sleep is set for $seconds seconds"
+echo "SERVICE MSG: $(date '+%Y-%m-%d %H:%M:%S') DERO is trading at $pair_ticker XMR"
+echo "SERVICE MSG: $(date '+%Y-%m-%d %H:%M:%S') Swap is ready"
 
 while true; do
     source ./app/scan/_dero_wallet.sh
